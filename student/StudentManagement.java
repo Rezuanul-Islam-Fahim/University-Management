@@ -11,13 +11,14 @@ public class StudentManagement {
         int option = 0;
 
         while (option != 6) {
-            System.out.println("----- Manage Student -----");
+            System.out.println("\n----- Manage Students -----");
             System.out.println("1. Add Student");
             System.out.println("2. Update Student");
             System.out.println("3. Search Student");
             System.out.println("4. Delete Student");
-            System.out.println("5. Show All Student");
+            System.out.println("5. Show All Students");
             System.out.println("6. Exit");
+            System.out.print("\nSelect Option: ");
 
             option = sc.nextInt();
 

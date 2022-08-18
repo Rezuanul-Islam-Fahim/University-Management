@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("============= Welcome to University Management System =============");
+        System.out.println("\n\n============= Welcome to University Management System =============");
         System.out.println("1. Faculty Management");
         System.out.println("2. Student Management");
         System.out.println("3. Stuff Management");

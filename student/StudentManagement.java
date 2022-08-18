@@ -11,7 +11,7 @@ public class StudentManagement {
         int option = 0;
 
         while (option != 6) {
-            System.out.println("----- Manage Student -----");
+            System.out.println("\n----- Manage Student -----");
             System.out.println("1. Add Student");
             System.out.println("2. Update Student");
             System.out.println("3. Search Student");

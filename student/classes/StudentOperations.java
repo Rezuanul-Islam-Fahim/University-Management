@@ -17,6 +17,7 @@ public class StudentOperations implements GeneralOperations {
 
     @Override
     public void add() {
+        System.out.println("\n---- Enter Student Information ----");
         System.out.print("ID: ");
         String id = sc.nextLine();
 
@@ -43,8 +44,14 @@ public class StudentOperations implements GeneralOperations {
 
     @Override
     public void search() {
-        // TODO Auto-generated method stub
-
+        System.out.print("\nEnter Student ID to search: ");
+        String studentId = sc.nextLine();
+        Student searchedStudent = studentIO.searchFromFile(studentId);
+        if (searchedStudent.getId() == null) {
+            System.out.println("No student found with this ID");
+        } else {
+            searchedStudent.showDetails();
+        }
     }
 
     @Override
@@ -64,5 +71,4 @@ public class StudentOperations implements GeneralOperations {
         // TODO Auto-generated method stub
 
     }
-
 }

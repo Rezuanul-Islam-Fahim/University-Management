@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.BufferedReader;
 
 public class StudentIO {
+    private String fileName = "Database/StudentData.txt";
     private File file;
     private FileWriter writer;
     private FileReader reader;
@@ -13,7 +14,7 @@ public class StudentIO {
 
     public void writeIntoFile(Student student) {
         try {
-            file = new File("Database/StudentData.txt");
+            file = new File(fileName);
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -36,7 +37,7 @@ public class StudentIO {
         Student student = new Student();
 
         try {
-            file = new File("Database/StudentData.txt");
+            file = new File(fileName);
             reader = new FileReader(file);
             bfr = new BufferedReader(reader);
             String temp;
@@ -89,5 +90,34 @@ public class StudentIO {
         }
 
         return student;
+    }
+
+    public void updateData(String oldData, String newData) {
+
+        try {
+            file = new File(fileName);
+            reader = new FileReader(file);
+            bfr = new BufferedReader(reader);
+
+            String oldStudentData = "";
+            String temp;
+
+            while ((temp = bfr.readLine()) != null) {
+                oldStudentData += temp + "\r\n";
+            }
+
+            String newStudentData = oldStudentData.replace(oldData, newData);
+
+            bfr.close();
+            reader.close();
+
+            writer = new FileWriter(file);
+            writer.write(newStudentData);
+            writer.flush();
+            writer.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

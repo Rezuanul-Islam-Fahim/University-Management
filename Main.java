@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 import faculty.FacultyManagement;
 import student.StudentManagement;
 import stuff.StuffManagement;
@@ -27,5 +28,7 @@ public class Main {
             default:
                 System.out.println("Unknown Operation");
         }
+
+        sc.close();
     }
 }

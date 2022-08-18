@@ -1,0 +1,31 @@
+import java.util.Scanner;
+import FacultyManagement.FacultyManagement;
+import StudentManagement.StudentManagement;
+import StuffManagement.StuffManagement;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("============= Welcome to University Management System =============");
+        System.out.println("1. Faculty Management");
+        System.out.println("2. Student Management");
+        System.out.println("3. Stuff Management");
+
+        int managementOption = sc.nextInt();
+
+        switch (managementOption) {
+            case 1:
+                FacultyManagement.runFacultyOperation();
+                break;
+            case 2:
+                StudentManagement.runStudentOperation();
+                break;
+            case 3:
+                StuffManagement.runStuffOperation();
+                break;
+            default:
+                System.out.println("Unknown Operation");
+        }
+    }
+}

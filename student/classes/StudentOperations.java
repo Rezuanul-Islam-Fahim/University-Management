@@ -39,6 +39,7 @@ public class StudentOperations implements GeneralOperations {
 
         Student newStudent = new Student(id, name, age, gender, cgpa, creditPassed);
         studentIO.writeIntoFile(newStudent);
+        System.out.println("\n-----///----- New student added -----///-----");
         sc.nextLine();
     }
 

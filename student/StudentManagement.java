@@ -2,8 +2,11 @@ package student;
 
 import java.util.Scanner;
 
+import student.classes.StudentOperations;
+
 public class StudentManagement {
     public static void runStudentOperation() {
+        StudentOperations studentOps = new StudentOperations();
         Scanner sc = new Scanner(System.in);
         int option = 0;
 
@@ -16,21 +19,23 @@ public class StudentManagement {
             System.out.println("5. Show All Student");
             System.out.println("6. Exit");
 
+            option = sc.nextInt();
+
             switch (option) {
                 case 1:
-                    System.out.println("Add Student");
+                    studentOps.add();
                     break;
                 case 2:
-                    System.out.println("Update Student");
+                    studentOps.update();
                     break;
                 case 3:
-                    System.out.println("Search Student");
+                    studentOps.search();
                     break;
                 case 4:
-                    System.out.println("Delete Student");
+                    studentOps.delete();
                     break;
                 case 5:
-                    System.out.println("Show All Student");
+                    studentOps.showAll();
                     break;
                 case 6:
                     System.out.println("Program Exited");
@@ -38,8 +43,6 @@ public class StudentManagement {
                 default:
                     System.out.println("Invalid Input");
             }
-
-            option = sc.nextInt();
         }
 
         sc.close();

@@ -89,4 +89,8 @@ public class Student extends StudentBase {
         System.out.println("CGPA: " + cgpa);
         System.out.println("Credit Passed: " + creditPassed);
     }
+
+    String studentToStr() {
+        return id + "\r\n" + name + "\r\n" + age + "\r\n" + gender + "\r\n" + cgpa + "\r\n" + creditPassed;
+    }
 }

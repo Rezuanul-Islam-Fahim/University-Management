@@ -1,7 +1,7 @@
 import java.util.Scanner;
-import FacultyManagement.FacultyManagement;
-import StudentManagement.StudentManagement;
-import StuffManagement.StuffManagement;
+import faculty.FacultyManagement;
+import student.StudentManagement;
+import stuff.StuffManagement;
 
 public class Main {
     public static void main(String[] args) {

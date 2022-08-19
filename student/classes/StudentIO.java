@@ -120,4 +120,75 @@ public class StudentIO {
             e.printStackTrace();
         }
     }
+
+    public Student[] getAllStudent() {
+        Student[] students = new Student[] {};
+
+        try {
+
+            file = new File(fileName);
+            reader = new FileReader(file);
+            bfr = new BufferedReader(reader);
+            String temp;
+            int wordCount = 0;
+            int studentCount = 0;
+
+            while ((temp = bfr.readLine()) != null) {
+                if (temp.length() > 0)
+                    wordCount++;
+            }
+
+            students = new Student[wordCount / 6];
+            wordCount = 0;
+
+            bfr.close();
+            reader.close();
+
+            reader = new FileReader(file);
+            bfr = new BufferedReader(reader);
+
+            while ((temp = bfr.readLine()) != null) {
+                if (temp.length() > 0) {
+                    if (students[studentCount] == null) {
+                        students[studentCount] = new Student();
+                    }
+                    switch (wordCount) {
+                        case 0:
+                            students[studentCount].setId(temp);
+                            break;
+                        case 1:
+                            students[studentCount].setName(temp);
+                            break;
+                        case 2:
+                            students[studentCount].setAge(Integer.parseInt(temp));
+                            break;
+                        case 3:
+                            students[studentCount].setGender(temp);
+                            break;
+                        case 4:
+                            students[studentCount].setCGPA(Double.parseDouble(temp));
+                            break;
+                        case 5:
+                            students[studentCount].setCreditPassed(Integer.parseInt(temp));
+                            break;
+                    }
+
+                    wordCount++;
+
+                } else {
+                    studentCount++;
+                    wordCount = 0;
+                }
+            }
+
+            bfr.close();
+            reader.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return students;
+
+    }
 }

@@ -108,7 +108,11 @@ public class StudentOperations implements GeneralOperations {
 
     @Override
     public void showAll() {
-        // TODO Auto-generated method stub
+        Student[] students = studentIO.getAllStudent();
 
+        for (Student student : students) {
+            System.out.println("\n///=======///=======///======///");
+            student.showDetails();
+        }
     }
 }

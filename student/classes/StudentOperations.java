@@ -94,8 +94,16 @@ public class StudentOperations implements GeneralOperations {
 
     @Override
     public void delete() {
-        // TODO Auto-generated method stub
-
+        System.out.print("\nEnter student ID to delete: ");
+        String studentId = sc.nextLine();
+        Student student = studentIO.searchFromFile(studentId);
+        if (student.getId() == null) {
+            System.out.println("///=== No student found with this ID ===///");
+        } else {
+            String studentStr = student.studentToStr() + "\r\n\r\n";
+            studentIO.updateData(studentStr, "");
+            System.out.println("\n-----///----- Student deleted -----///-----");
+        }
     }
 
     @Override

@@ -111,7 +111,6 @@ public class StudentOperations implements GeneralOperations {
         Student[] students = studentIO.getAllStudent();
 
         for (Student student : students) {
-            System.out.println("\n///=======///=======///======///");
             student.showDetails();
         }
     }

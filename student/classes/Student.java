@@ -82,7 +82,8 @@ public class Student extends StudentBase {
 
     @Override
     void showDetails() {
-        System.out.println("\nId: " + id);
+        System.out.println("\n-----//-----//-----");
+        System.out.println("Id: " + id);
         System.out.println("Name: " + name);
         System.out.println("Age: " + age);
         System.out.println("Gender: " + gender);

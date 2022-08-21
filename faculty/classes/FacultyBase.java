@@ -1,13 +1,4 @@
-package faculty;
-
-import java.lang.*;
+package faculty.classes;
 
 public abstract class FacultyBase {
-    abstract String getName();
-
-    abstract int getId();
-
-    abstract String getDepartment();
-
-    abstract void showDetails();
 }

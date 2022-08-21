@@ -3,8 +3,8 @@ package student;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import exception.FileReadWriteException;
-import exception.InvalidInputException;
+import exceptions.FileReadWriteException;
+import exceptions.InvalidInputException;
 import student.classes.StudentOperations;
 
 public class StudentManagement {

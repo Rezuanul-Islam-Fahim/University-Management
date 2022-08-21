@@ -3,8 +3,8 @@ package student.classes;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import exception.FileReadWriteException;
-import exception.InvalidInputException;
+import exceptions.FileReadWriteException;
+import exceptions.InvalidInputException;
 import interfaces.GeneralOperations;
 
 public class StudentOperations implements GeneralOperations {

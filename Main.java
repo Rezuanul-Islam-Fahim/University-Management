@@ -1,8 +1,8 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import exception.FileReadWriteException;
-import exception.InvalidInputException;
+import exceptions.FileReadWriteException;
+import exceptions.InvalidInputException;
 import faculty.FacultyManagement;
 import student.StudentManagement;
 import stuff.StuffManagement;

@@ -2,7 +2,7 @@ package stuff;
 
 import java.util.Scanner;
 
-import exception.InvalidInputException;
+import exceptions.InvalidInputException;
 import stuff.classes.StuffOperations;
 
 public class StuffManagement {

@@ -3,6 +3,10 @@ package student.classes;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+
+import exception.FileReadWriteException;
+
 import java.io.BufferedReader;
 
 public class StudentIO {
@@ -12,7 +16,8 @@ public class StudentIO {
     private FileReader reader;
     private BufferedReader bfr;
 
-    public void writeIntoFile(Student student) {
+    public void writeIntoFile(Student student) throws Exception {
+
         try {
             file = new File(fileName);
             if (!file.exists()) {
@@ -28,8 +33,11 @@ public class StudentIO {
             writer.write("\r\n");
             writer.flush();
             writer.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        } catch (IOException error) {
+            throw new FileReadWriteException("File read error");
+        } catch (Exception error) {
+            throw new Exception("Some error occurred");
         }
     }
 

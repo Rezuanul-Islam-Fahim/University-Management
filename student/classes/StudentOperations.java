@@ -1,7 +1,10 @@
 package student.classes;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import exception.FileReadWriteException;
+import exception.InvalidInputException;
 import interfaces.GeneralOperations;
 
 public class StudentOperations implements GeneralOperations {
@@ -14,35 +17,44 @@ public class StudentOperations implements GeneralOperations {
     }
 
     @Override
-    public void add() {
-        System.out.println("\n---- Enter Student Information ----");
-        System.out.print("ID: ");
-        String id = sc.nextLine();
+    public void add() throws Exception {
+        try {
+            System.out.println("\n---- Enter Student Information ----");
+            System.out.print("ID: ");
+            String id = sc.nextLine();
 
-        System.out.print("Name: ");
-        String name = sc.nextLine();
+            System.out.print("Name: ");
+            String name = sc.nextLine();
 
-        System.out.print("Age: ");
-        int age = sc.nextInt();
+            System.out.print("Age: ");
+            int age = sc.nextInt();
 
-        System.out.print("Gender(Male/Female): ");
-        sc.nextLine();
-        String gender = sc.nextLine();
+            System.out.print("Gender(Male/Female): ");
+            sc.nextLine();
+            String gender = sc.nextLine();
 
-        System.out.print("Cgpa: ");
-        double cgpa = sc.nextDouble();
+            System.out.print("Cgpa: ");
+            double cgpa = sc.nextDouble();
 
-        System.out.print("Credit Passed: ");
-        int creditPassed = sc.nextInt();
+            System.out.print("Credit Passed: ");
+            int creditPassed = sc.nextInt();
 
-        Student newStudent = new Student(id, name, age, gender, cgpa, creditPassed);
-        studentIO.writeIntoFile(newStudent);
-        System.out.println("\n-----///----- New student added -----///-----");
-        sc.nextLine();
+            Student newStudent = new Student(id, name, age, gender, cgpa, creditPassed);
+            studentIO.writeIntoFile(newStudent);
+            System.out.println("\n-----///----- New student added -----///-----");
+            sc.nextLine();
+
+        } catch (InputMismatchException error) {
+            throw new InvalidInputException("Invalid input given");
+        } catch (FileReadWriteException error) {
+            throw error;
+        } catch (Exception error) {
+            throw error;
+        }
     }
 
     @Override
-    public void search() {
+    public void search() throws Exception {
         System.out.print("\nEnter student ID to search: ");
         String studentId = sc.nextLine();
         Student student = studentIO.searchFromFile(studentId);
@@ -54,7 +66,7 @@ public class StudentOperations implements GeneralOperations {
     }
 
     @Override
-    public void update() {
+    public void update() throws Exception {
         System.out.print("\nEnter student ID to update: ");
         String studentId = sc.nextLine();
         Student student = studentIO.searchFromFile(studentId);
@@ -93,7 +105,7 @@ public class StudentOperations implements GeneralOperations {
     }
 
     @Override
-    public void delete() {
+    public void delete() throws Exception {
         System.out.print("\nEnter student ID to delete: ");
         String studentId = sc.nextLine();
         Student student = studentIO.searchFromFile(studentId);
@@ -107,7 +119,7 @@ public class StudentOperations implements GeneralOperations {
     }
 
     @Override
-    public void showAll() {
+    public void showAll() throws Exception {
         Student[] students = studentIO.getAllStudent();
 
         for (Student student : students) {

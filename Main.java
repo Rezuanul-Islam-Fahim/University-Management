@@ -1,6 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import exception.FileReadWriteException;
 import exception.InvalidInputException;
 import faculty.FacultyManagement;
 import student.StudentManagement;
@@ -35,17 +36,30 @@ public class Main {
 
         } catch (InputMismatchException error) {
 
-            System.out.println("Error is: " + error.toString());
-            System.out.println("Invalid Input given");
+            System.out.println("\n///------///------///------///");
+            System.out.println("Error: Invalid input given");
+            System.out.println("///------///------///------///");
 
         } catch (InvalidInputException error) {
 
-            System.out.println("Error is: " + error.toString());
+            System.out.println("\n///------///------///------///");
+            System.out.println("Error: " + error.toString());
+            System.out.println("///------///------///------///");
+
+        } catch (FileReadWriteException error) {
+
+            System.out.println("\n///------///------///------///");
+            System.out.println("Error: " + error.toString());
+            System.out.println("///------///------///------///");
 
         } catch (Exception error) {
-            System.out.println("Error is: " + error.toString());
-        }
 
-        sc.close();
+            System.out.println("\n///------///------///------///");
+            System.out.println("Error: " + error.toString());
+            System.out.println("///------///------///------///");
+
+        } finally {
+            sc.close();
+        }
     }
 }

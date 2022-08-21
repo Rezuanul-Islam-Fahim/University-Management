@@ -1,12 +1,14 @@
 package student;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import exception.FileReadWriteException;
 import exception.InvalidInputException;
 import student.classes.StudentOperations;
 
 public class StudentManagement {
-    public static void runStudentOperation() throws InvalidInputException {
+    public static void runStudentOperation() throws Exception {
         StudentOperations studentOps = new StudentOperations();
         Scanner sc = new Scanner(System.in);
         int option = 0;
@@ -47,10 +49,14 @@ public class StudentManagement {
                         System.out.println("Invalid Input");
                 }
             }
+        } catch (InputMismatchException error) {
+            throw new InvalidInputException("Invalid input given");
+        } catch (InvalidInputException error) {
+            throw error;
+        } catch (FileReadWriteException error) {
+            throw error;
         } catch (Exception error) {
-
-            throw new InvalidInputException("Invalid Input Given");
-
+            throw error;
         } finally {
             sc.close();
         }

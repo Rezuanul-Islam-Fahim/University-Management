@@ -1,13 +1,13 @@
 package interfaces;
 
 public interface GeneralOperations {
-    void add();
+    void add() throws Exception;
 
-    void search();
+    void search() throws Exception;
 
-    void update();
+    void update() throws Exception;
 
-    void delete();
+    void delete() throws Exception;
 
-    void showAll();
+    void showAll() throws Exception;
 }

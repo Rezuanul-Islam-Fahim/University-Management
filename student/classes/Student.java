@@ -21,38 +21,13 @@ public class Student extends StudentBase {
     }
 
     @Override
-    String getId() {
-        return id;
-    }
-
-    @Override
-    String getName() {
-        return name;
-    }
-
-    @Override
-    int getAge() {
-        return age;
-    }
-
-    @Override
-    String getGender() {
-        return gender;
-    }
-
-    @Override
-    double getCGPA() {
-        return cgpa;
-    }
-
-    @Override
-    int getCreditPassed() {
-        return creditPassed;
-    }
-
-    @Override
     void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    String getId() {
+        return id;
     }
 
     @Override
@@ -61,8 +36,18 @@ public class Student extends StudentBase {
     }
 
     @Override
+    String getName() {
+        return name;
+    }
+
+    @Override
     void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    int getAge() {
+        return age;
     }
 
     @Override
@@ -71,13 +56,28 @@ public class Student extends StudentBase {
     }
 
     @Override
+    String getGender() {
+        return gender;
+    }
+
+    @Override
     void setCGPA(double cgpa) {
         this.cgpa = cgpa;
     }
 
     @Override
+    double getCGPA() {
+        return cgpa;
+    }
+
+    @Override
     void setCreditPassed(int creditPassed) {
         this.creditPassed = creditPassed;
+    }
+
+    @Override
+    int getCreditPassed() {
+        return creditPassed;
     }
 
     @Override

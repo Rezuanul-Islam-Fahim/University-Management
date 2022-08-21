@@ -2,46 +2,57 @@ package stuff;
 
 import java.util.Scanner;
 
+import exception.InvalidInputException;
+import stuff.classes.StuffOperations;
+
 public class StuffManagement {
-    public static void runStuffOperation() {
+    public static void runStuffOperation() throws InvalidInputException {
+        StuffOperations stuffOps = new StuffOperations();
         Scanner sc = new Scanner(System.in);
         int option = 0;
 
-        while (option != 6) {
-            System.out.println("----- Manage Stuff -----");
-            System.out.println("1. Add Stuff");
-            System.out.println("2. Update Stuff");
-            System.out.println("3. Search Stuff");
-            System.out.println("4. Delete Stuff");
-            System.out.println("5. Show All Stuff");
-            System.out.println("6. Exit");
+        try {
+            while (option != 6) {
+                System.out.println("\n----- Manage Stuffs -----");
+                System.out.println("1. Add Stuff");
+                System.out.println("2. Update Stuff");
+                System.out.println("3. Search Stuff");
+                System.out.println("4. Delete Stuff");
+                System.out.println("5. Show All Stuffs");
+                System.out.println("6. Exit");
+                System.out.print("\nSelect Option: ");
 
-            switch (option) {
-                case 1:
-                    System.out.println("Add Stuff");
-                    break;
-                case 2:
-                    System.out.println("Update Stuff");
-                    break;
-                case 3:
-                    System.out.println("Search Stuff");
-                    break;
-                case 4:
-                    System.out.println("Delete Stuff");
-                    break;
-                case 5:
-                    System.out.println("Show All Stuff");
-                    break;
-                case 6:
-                    System.out.println("Program Exited");
-                    break;
-                default:
-                    System.out.println("Invalid Input");
+                option = sc.nextInt();
+
+                switch (option) {
+                    case 1:
+                        stuffOps.add();
+                        break;
+                    case 2:
+                        stuffOps.update();
+                        break;
+                    case 3:
+                        stuffOps.search();
+                        break;
+                    case 4:
+                        stuffOps.delete();
+                        break;
+                    case 5:
+                        stuffOps.showAll();
+                        break;
+                    case 6:
+                        System.out.println("Program Exited");
+                        break;
+                    default:
+                        System.out.println("Invalid Input");
+                }
             }
+        } catch (Exception error) {
 
-            option = sc.nextInt();
+            throw new InvalidInputException("Invalid Input Given");
+
+        } finally {
+            sc.close();
         }
-
-        sc.close();
     }
 }

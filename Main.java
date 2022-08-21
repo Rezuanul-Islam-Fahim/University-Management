@@ -1,6 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import exception.InvalidInputException;
 import faculty.FacultyManagement;
 import student.StudentManagement;
 import stuff.StuffManagement;
@@ -36,6 +37,10 @@ public class Main {
 
             System.out.println("Error is: " + error.toString());
             System.out.println("Invalid Input given");
+
+        } catch (InvalidInputException error) {
+
+            System.out.println("Error is: " + error.toString());
 
         } catch (Exception error) {
             System.out.println("Error is: " + error.toString());

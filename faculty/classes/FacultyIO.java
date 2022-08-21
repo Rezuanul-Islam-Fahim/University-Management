@@ -53,7 +53,7 @@ public class FacultyIO {
 
             while ((temp = bfr.readLine()) != null) {
 
-                if (temp.contains(facultyId)) {
+                if (temp.contains(facultyId) && temp.length() == facultyId.length()) {
                     faculty.setId(temp);
                     counter++;
                 } else {

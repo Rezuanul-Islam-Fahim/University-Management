@@ -53,7 +53,7 @@ public class StudentIO {
 
             while ((temp = bfr.readLine()) != null) {
 
-                if (temp.contains(studentId)) {
+                if (temp.contains(studentId) && temp.length() == studentId.length()) {
                     student.setId(temp);
                     counter++;
                 } else {

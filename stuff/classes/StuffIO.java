@@ -52,7 +52,7 @@ public class StuffIO {
 
             while ((temp = bfr.readLine()) != null) {
 
-                if (temp.contains(stuffId)) {
+                if (temp.contains(stuffId) && temp.length() == stuffId.length()) {
                     stuff.setId(temp);
                     counter++;
                 } else {

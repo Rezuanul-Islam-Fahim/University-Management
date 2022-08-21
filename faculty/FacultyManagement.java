@@ -1,12 +1,14 @@
 package faculty;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import exceptions.FileReadWriteException;
 import exceptions.InvalidInputException;
 import faculty.classes.FacultyOperations;
 
 public class FacultyManagement {
-    public static void runFacultyOperation() throws InvalidInputException {
+    public static void runFacultyOperation() throws Exception {
         FacultyOperations facultyOps = new FacultyOperations();
         Scanner sc = new Scanner(System.in);
         int option = 0;
@@ -47,10 +49,14 @@ public class FacultyManagement {
                         System.out.println("Invalid Input");
                 }
             }
+        } catch (InputMismatchException error) {
+            throw new InvalidInputException("Invalid input given");
+        } catch (InvalidInputException error) {
+            throw error;
+        } catch (FileReadWriteException error) {
+            throw error;
         } catch (Exception error) {
-
-            throw new InvalidInputException("Invalid Input Given");
-
+            throw error;
         } finally {
             sc.close();
         }

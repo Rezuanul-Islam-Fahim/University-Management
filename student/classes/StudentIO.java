@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import exception.FileReadWriteException;
+import exceptions.FileReadWriteException;
 
 import java.io.BufferedReader;
 
@@ -41,7 +41,7 @@ public class StudentIO {
         }
     }
 
-    public Student searchFromFile(String studentId) {
+    public Student searchFromFile(String studentId) throws Exception {
         Student student = new Student();
 
         try {
@@ -93,14 +93,16 @@ public class StudentIO {
             bfr.close();
             reader.close();
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException error) {
+            throw new FileReadWriteException("File read error");
+        } catch (Exception error) {
+            throw new Exception("Some error occurred");
         }
 
         return student;
     }
 
-    public void updateData(String oldData, String newData) {
+    public void updateData(String oldData, String newData) throws Exception {
 
         try {
             file = new File(fileName);
@@ -124,16 +126,17 @@ public class StudentIO {
             writer.flush();
             writer.close();
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException error) {
+            throw new FileReadWriteException("File update error");
+        } catch (Exception error) {
+            throw new Exception("Some error occurred");
         }
     }
 
-    public Student[] getAllStudent() {
+    public Student[] getAllStudent() throws Exception {
         Student[] students = new Student[] {};
 
         try {
-
             file = new File(fileName);
             reader = new FileReader(file);
             bfr = new BufferedReader(reader);
@@ -192,8 +195,10 @@ public class StudentIO {
             bfr.close();
             reader.close();
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException error) {
+            throw new FileReadWriteException("File read error");
+        } catch (Exception error) {
+            throw new Exception("Some error occurred");
         }
 
         return students;

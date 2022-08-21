@@ -2,7 +2,7 @@ package faculty;
 
 import java.util.Scanner;
 
-import exception.InvalidInputException;
+import exceptions.InvalidInputException;
 import faculty.classes.FacultyOperations;
 
 public class FacultyManagement {

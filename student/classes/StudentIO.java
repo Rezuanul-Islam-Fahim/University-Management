@@ -102,7 +102,7 @@ public class StudentIO {
         return student;
     }
 
-    public void updateData(String oldData, String newData) {
+    public void updateData(String oldData, String newData) throws Exception {
 
         try {
             file = new File(fileName);
@@ -126,8 +126,10 @@ public class StudentIO {
             writer.flush();
             writer.close();
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException error) {
+            throw new FileReadWriteException("File update error");
+        } catch (Exception error) {
+            throw new Exception("Some error occurred");
         }
     }
 

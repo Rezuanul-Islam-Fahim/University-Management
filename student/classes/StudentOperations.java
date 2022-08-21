@@ -73,40 +73,48 @@ public class StudentOperations implements GeneralOperations {
 
     @Override
     public void update() throws Exception {
-        System.out.print("\nEnter student ID to update: ");
-        String studentId = sc.nextLine();
-        Student student = studentIO.searchFromFile(studentId);
-        if (student.getId() == null) {
-            System.out.println("No student found with this ID");
-        } else {
-            String studentStr = student.studentToStr();
-            System.out.println("\n---- Edit Student Information ----");
+        try {
+            System.out.print("\nEnter student ID to update: ");
+            String studentId = sc.nextLine();
+            Student student = studentIO.searchFromFile(studentId);
+            if (student.getId() == null) {
+                System.out.println("No student found with this ID");
+            } else {
+                String studentStr = student.studentToStr();
+                System.out.println("\n---- Edit Student Information ----");
 
-            System.out.print("Name (" + student.getName() + "): ");
-            String name = sc.nextLine();
+                System.out.print("Name (" + student.getName() + "): ");
+                String name = sc.nextLine();
 
-            System.out.print("Age (" + student.getAge() + "): ");
-            String age = sc.nextLine();
+                System.out.print("Age (" + student.getAge() + "): ");
+                String age = sc.nextLine();
 
-            System.out.print("Gender (" + student.getGender() + "): ");
-            String gender = sc.nextLine();
+                System.out.print("Gender (" + student.getGender() + "): ");
+                String gender = sc.nextLine();
 
-            System.out.print("Cgpa (" + student.getCGPA() + "): ");
-            String cgpa = sc.nextLine();
+                System.out.print("Cgpa (" + student.getCGPA() + "): ");
+                String cgpa = sc.nextLine();
 
-            System.out.print("Credit Passed (" + student.getCreditPassed() + "): ");
-            String creditPassed = sc.nextLine();
+                System.out.print("Credit Passed (" + student.getCreditPassed() + "): ");
+                String creditPassed = sc.nextLine();
 
-            Student updatedStudent = new Student(
-                    student.getId(),
-                    name == "" ? student.getName() : name,
-                    age == "" ? student.getAge() : Integer.parseInt(age),
-                    gender == "" ? student.getGender() : gender,
-                    cgpa == "" ? student.getCGPA() : Double.parseDouble(cgpa),
-                    creditPassed == "" ? student.getCreditPassed() : Integer.parseInt(creditPassed));
-            String updatedStudentStr = updatedStudent.studentToStr();
-            studentIO.updateData(studentStr, updatedStudentStr);
-            System.out.println("\n-----///----- Student data updated -----///-----");
+                Student updatedStudent = new Student(
+                        student.getId(),
+                        name == "" ? student.getName() : name,
+                        age == "" ? student.getAge() : Integer.parseInt(age),
+                        gender == "" ? student.getGender() : gender,
+                        cgpa == "" ? student.getCGPA() : Double.parseDouble(cgpa),
+                        creditPassed == "" ? student.getCreditPassed() : Integer.parseInt(creditPassed));
+                String updatedStudentStr = updatedStudent.studentToStr();
+                studentIO.updateData(studentStr, updatedStudentStr);
+                System.out.println("\n-----///----- Student data updated -----///-----");
+            }
+        } catch (InputMismatchException error) {
+            throw new InvalidInputException("Invalid input given");
+        } catch (FileReadWriteException error) {
+            throw error;
+        } catch (Exception error) {
+            throw error;
         }
     }
 

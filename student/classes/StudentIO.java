@@ -41,7 +41,7 @@ public class StudentIO {
         }
     }
 
-    public Student searchFromFile(String studentId) {
+    public Student searchFromFile(String studentId) throws Exception {
         Student student = new Student();
 
         try {
@@ -93,8 +93,10 @@ public class StudentIO {
             bfr.close();
             reader.close();
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException error) {
+            throw new FileReadWriteException("File read error");
+        } catch (Exception error) {
+            throw new Exception("Some error occurred");
         }
 
         return student;

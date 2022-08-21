@@ -55,13 +55,19 @@ public class StudentOperations implements GeneralOperations {
 
     @Override
     public void search() throws Exception {
-        System.out.print("\nEnter student ID to search: ");
-        String studentId = sc.nextLine();
-        Student student = studentIO.searchFromFile(studentId);
-        if (student.getId() == null) {
-            System.out.println("///=== No student found with this ID ===///");
-        } else {
-            student.showDetails();
+        try {
+            System.out.print("\nEnter student ID to search: ");
+            String studentId = sc.nextLine();
+            Student student = studentIO.searchFromFile(studentId);
+            if (student.getId() == null) {
+                System.out.println("///=== No student found with this ID ===///");
+            } else {
+                student.showDetails();
+            }
+        } catch (FileReadWriteException error) {
+            throw error;
+        } catch (Exception error) {
+            throw error;
         }
     }
 

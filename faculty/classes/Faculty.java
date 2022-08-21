@@ -1,5 +1,4 @@
 package faculty.classes;
 
-public class Faculty {
-
+public class Faculty extends FacultyBase {
 }

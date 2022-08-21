@@ -33,5 +33,4 @@ public class FacultyOperations implements GeneralOperations {
         // TODO Auto-generated method stub
 
     }
-
 }

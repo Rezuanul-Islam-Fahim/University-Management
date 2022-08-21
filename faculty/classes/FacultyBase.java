@@ -1,5 +1,4 @@
 package faculty.classes;
 
-public class FacultyBase {
-
+public abstract class FacultyBase {
 }

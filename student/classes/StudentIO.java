@@ -133,11 +133,10 @@ public class StudentIO {
         }
     }
 
-    public Student[] getAllStudent() {
+    public Student[] getAllStudent() throws Exception {
         Student[] students = new Student[] {};
 
         try {
-
             file = new File(fileName);
             reader = new FileReader(file);
             bfr = new BufferedReader(reader);
@@ -196,8 +195,10 @@ public class StudentIO {
             bfr.close();
             reader.close();
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException error) {
+            throw new FileReadWriteException("File read error");
+        } catch (Exception error) {
+            throw new Exception("Some error occurred");
         }
 
         return students;

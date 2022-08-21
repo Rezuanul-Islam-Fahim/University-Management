@@ -140,10 +140,18 @@ public class StudentOperations implements GeneralOperations {
 
     @Override
     public void showAll() throws Exception {
-        Student[] students = studentIO.getAllStudent();
+        try {
 
-        for (Student student : students) {
-            student.showDetails();
+            Student[] students = studentIO.getAllStudent();
+
+            for (Student student : students) {
+                student.showDetails();
+            }
+
+        } catch (FileReadWriteException error) {
+            throw error;
+        } catch (Exception error) {
+            throw error;
         }
     }
 }
